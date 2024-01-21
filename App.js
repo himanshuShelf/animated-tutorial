@@ -1,8 +1,10 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, FlatList, RefreshControl } from 'react-native';
 import usePagination from './usePagination';
 import Hello from './Hello';
 import { useState } from 'react';
+import Navigator from './navigators';
 
 const DATA = [
   "red",
@@ -24,23 +26,9 @@ export default function App() {
   }
 
   const { data } = usePagination({ pageNumber: page })
-  console.log(data)
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
-      <FlatList 
-        data={data}
-        refreshControl={<RefreshControl refreshing={isLoading} onRefresh={() => console.log('REFRESHINg')}  />}
-        renderItem={({ item }) => {
-          return <Text style={{height: 100, width: 100, fontSize: 18, fontWeight: '600'}}>{item.todo}</Text>
-        }}
-        keyExtractor={(props) => {
-          return props?.id
-        }}
-        onEndReached={handlePageUpdate}
-      />
-    </SafeAreaView>
+    <Navigator />
   );
 }
 
