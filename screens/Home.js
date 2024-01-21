@@ -1,10 +1,23 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-function Home() {
+function Home({ route, navigation }) {
+
+    const handlePress = () => {
+        navigation.replace("Settings", {
+            test: "Hello World",
+            dontDoThis: () => {
+                console.log('FUnction from Home')
+            }
+        })
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Home</Text>
+            <TouchableOpacity onPress={handlePress}>
+            <Text style={styles.text}>Navigate to Notification</Text>
+            </TouchableOpacity>
         </View>
     )
 }

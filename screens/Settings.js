@@ -1,10 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-function Settings() {
+function Settings({ route }) {
+
+    console.log(route?.params)
+
+    const textFromHome = route?.params?.test;
+    const fnFromHome = route?.params?.dontDoThis;
+
+    console.log(textFromHome)
+
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Settings</Text>
+            <Text style={styles.text}>{textFromHome}</Text>
         </View>
     )
 }
