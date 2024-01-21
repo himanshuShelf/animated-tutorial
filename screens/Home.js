@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 function Home({ route, navigation }) {
 
     const handlePress = () => {
-        navigation.replace("Settings", {
+        navigation.replace("Notification", {
             test: "Hello World",
             dontDoThis: () => {
                 console.log('FUnction from Home')
